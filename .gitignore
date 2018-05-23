@@ -1,0 +1,10 @@
+dlg.py
+resources_rc.py
+
+*.py[cod]
+down_roms
+dist
+build
+venv
+
+flasher.spec

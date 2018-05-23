@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>455</width>
+    <height>266</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>ESPush 一键烧录</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/resources/espush.png</normaloff>:/resources/espush.png</iconset>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" stretch="2,1,1">
+     <item>
+      <widget class="QComboBox" name="firm_box">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="com_box">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="gobtn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>开始</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTextBrowser" name="textOut">
+     <property name="focusPolicy">
+      <enum>Qt::TabFocus</enum>
+     </property>
+     <property name="contextMenuPolicy">
+      <enum>Qt::CustomContextMenu</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progbar">
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+   </item>
+  </layout>
+  <action name="action_clear_console">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/resources/espush.png</normaloff>:/resources/espush.png</iconset>
+   </property>
+   <property name="text">
+    <string>清除内容</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>gobtn</sender>
+   <signal>clicked()</signal>
+   <receiver>Form</receiver>
+   <slot>go()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>395</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>447</x>
+     <y>34</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>action_clear_console</sender>
+   <signal>triggered()</signal>
+   <receiver>Form</receiver>
+   <slot>clear_console()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>227</x>
+     <y>132</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>textOut</sender>
+   <signal>customContextMenuRequested(QPoint)</signal>
+   <receiver>Form</receiver>
+   <slot>show_ctx_menu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>125</x>
+     <y>68</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>3</x>
+     <y>45</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>go()</slot>
+  <slot>clear_console()</slot>
+  <slot>show_ctx_menu()</slot>
+ </slots>
+</ui>
